@@ -46,7 +46,7 @@ fun LoginInPage(navController: NavHostController) {
         LoginTitle()
         LoginInputBox()
         HintWithUnderline()
-        LoginButton()
+        LoginButton(navController)
     }
 }
 
@@ -160,9 +160,11 @@ fun BottomText() {
 }
 
 @Composable
-fun LoginButton() {
+fun LoginButton(navController: NavHostController) {
     Button(
-        onClick = {},
+        onClick = {
+            navController.navigate("home")
+        },
         modifier = Modifier
             .height(48.dp)
             .fillMaxWidth()

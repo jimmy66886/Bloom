@@ -15,6 +15,7 @@ class MainActivity : ComponentActivity() {
                 // WelcomePage()
                 // LoginInPage(navController)
                 MyApp()
+//                HomePage()
             }
         }
     }

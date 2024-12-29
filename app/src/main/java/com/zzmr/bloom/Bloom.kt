@@ -15,5 +15,6 @@ fun MyApp() {
     ) {
         composable("welcome") { WelcomePage(navController) }
         composable("login") { LoginInPage(navController) }
+        composable("home") { HomePage() }
     }
 }
