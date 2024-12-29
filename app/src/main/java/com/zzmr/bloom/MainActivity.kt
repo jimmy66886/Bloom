@@ -12,7 +12,9 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             BloomTheme {
-                WelcomePage()
+                // WelcomePage()
+                // LoginInPage(navController)
+                MyApp()
             }
         }
     }

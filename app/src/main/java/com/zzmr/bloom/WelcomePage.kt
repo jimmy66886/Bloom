@@ -23,9 +23,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.vectorResource
-import androidx.compose.ui.text.style.LineHeightStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.zzmr.bloom.ui.theme.button
 import com.zzmr.bloom.ui.theme.gray
 import com.zzmr.bloom.ui.theme.medium
@@ -35,7 +35,7 @@ import com.zzmr.bloom.ui.theme.subtitle1
 import com.zzmr.bloom.ui.theme.white
 
 @Composable
-fun WelcomePage() {
+fun WelcomePage(navController: NavHostController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -46,19 +46,19 @@ fun WelcomePage() {
             contentDescription = "welcome_bg",
             modifier = Modifier.fillMaxSize()
         )
-        WelcomeContent()
+        WelcomeContent(navController)
     }
 }
 
 @Composable
-fun WelcomeContent() {
+fun WelcomeContent(navController: NavHostController) {
     Column(modifier = Modifier.fillMaxSize()) {
         Spacer(Modifier.height(72.dp))
         LeafImage()
         Spacer(Modifier.height(48.dp))
         WelcomeTitle()
         Spacer(Modifier.height(40.dp))
-        WelcomeButtons()
+        WelcomeButtons(navController)
     }
 }
 
@@ -103,7 +103,7 @@ fun WelcomeTitle() {
 }
 
 @Composable
-fun WelcomeButtons() {
+fun WelcomeButtons(navController: NavHostController) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.fillMaxWidth()
@@ -124,7 +124,9 @@ fun WelcomeButtons() {
             )
         }
         Spacer(modifier = Modifier.height(24.dp))
-        TextButton(onClick = {}) {
+        TextButton(onClick = {
+            navController.navigate("login")
+        }) {
             Text(
                 text = "Log in",
                 style = button,
